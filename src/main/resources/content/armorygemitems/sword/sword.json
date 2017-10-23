@@ -1,0 +1,85 @@
+{
+  "author": {
+    "name": "armorygemitems"
+  },
+  "meleeWeapon": {
+    "forEach": {
+      "values": [
+        {
+          "gem": "amazonite",
+          "color1": "129,250,235"
+        },
+        {
+          "gem": "quartz",
+          "color1": "-1"
+        },
+        {
+          "gem": "quartz.smoky",
+          "color1": "176,152,123"
+        },
+        {
+          "gem": "onyx.black",
+          "color1": "44,44,44"
+        },
+        {
+          "gem": "onyx.red",
+          "color1": "214,89,30"
+        },
+        {
+          "gem": "garnet.green",
+          "color1": "8,169,12"
+        },
+        {
+          "gem": "garnet.orange",
+          "color1": "184,110,0"
+        },
+        {
+          "gem": "garnet.red",
+          "color1": "233,17,17"
+        },
+        {
+          "gem": "garnet.yellow",
+          "color1": "209,211,16"
+        },
+        {
+          "gem": "emerald",
+          "color1": "-1"
+        }
+      ],
+      "data": {
+        "name": "sword.%gem%",
+        "id": "armorygemitems:sword.%gem%",
+        "creativeTab": "combat",
+        "attack": 7,
+        "blocksToBreak": [
+          {
+            "block": "minecraft:web",
+            "speed": 15
+          }
+        ],
+        "materialsToBreak": [
+          {
+            "material": "plants",
+            "speed": 1.5
+          },
+          {
+            "material": "vine",
+            "speed": 1.5
+          },
+          {
+            "material": "coral",
+            "speed": 1.5
+          },
+          {
+            "material": "leaves",
+            "speed": 1.5
+          },
+          {
+            "material": "gourd",
+            "speed": 1.5
+          }
+        ]
+      }
+    }
+  }
+}

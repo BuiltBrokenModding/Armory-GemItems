@@ -1,4 +1,4 @@
-package com.builtbroken.icbmsentry;
+package com.builtbroken.armorygemitems;
 
 import com.builtbroken.mc.framework.mod.AbstractMod;
 import com.builtbroken.mc.framework.mod.AbstractProxy;

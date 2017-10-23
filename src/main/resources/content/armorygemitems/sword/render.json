@@ -1,0 +1,55 @@
+{
+  "author": {
+    "name": "armorygemitems"
+  },
+  "render": {
+    "forEach": {
+      "values": [
+        {
+          "gem": "amazonite"
+        },
+        {
+          "gem": "quartz"
+        },
+        {
+          "gem": "quartz.smoky"
+        },
+        {
+          "gem": "onyx.black"
+        },
+        {
+          "gem": "onyx.red"
+        },
+        {
+          "gem": "garnet.green"
+        },
+        {
+          "gem": "garnet.orange"
+        },
+        {
+          "gem": "garnet.red"
+        },
+        {
+          "gem": "garnet.yellow"
+        },
+        {
+          "gem": "emerald"
+        }
+      ],
+      "data": {
+        "contentID": "armorygemitems:sword.%gem%",
+        "type": "item",
+        "states": [
+          {
+            "id": "item.inventory",
+            "renderType": "item",
+            "texture": {
+              "domain": "armorygemitems",
+              "name": "sword.%gem%"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
