@@ -1,0 +1,11 @@
+{
+  "author": {
+    "name": "armorygemitems"
+  },
+  "meleeWeapon": {
+    "name": "ax",
+    "id": "armorygemitems:ax",
+    "creativeTab": "tools",
+    "attack": 2
+  }
+}

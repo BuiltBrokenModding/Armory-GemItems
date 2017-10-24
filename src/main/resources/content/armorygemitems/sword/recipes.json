@@ -1,0 +1,60 @@
+{
+  "craftingGridRecipe": {
+    "forEach": {
+      "values": [
+        {
+          "gem": "amazonite"
+        },
+        {
+          "gem": "quartz"
+        },
+        {
+          "gem": "quartz.smoky"
+        },
+        {
+          "gem": "onyx.black"
+        },
+        {
+          "gem": "onyx.red"
+        },
+        {
+          "gem": "garnet.green"
+        },
+        {
+          "gem": "garnet.orange"
+        },
+        {
+          "gem": "garnet.red"
+        },
+        {
+          "gem": "garnet.yellow"
+        },
+        {
+          "gem": "emerald"
+        }
+      ],
+      "data": {
+        "type": "shaped",
+        "subType": "tool",
+        "output": {
+          "item": "item@armory:armoryMeleeWeapon",
+          "meta": "armorygemitems:sword.%gem%"
+        },
+        "grid": [
+          " HG",
+          "CG ",
+          "S  "
+        ],
+        "items": {
+          "H": "tool@hammer",
+          "C": "tool@chisel",
+          "G": {
+            "item": "item@voltzengine:gems",
+            "meta": "%gem%.cut"
+          },
+          "S": "ore@stickWood"
+        }
+      }
+    }
+  }
+}
