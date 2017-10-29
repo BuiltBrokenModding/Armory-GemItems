@@ -10,20 +10,25 @@ buildscript {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
-    }
+        maven {
+     		 url "https://plugins.gradle.org/m2/"
+   			 }
+  		}
+    
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
         classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
         classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.4.0'
         classpath 'org.ajoberstar:gradle-git:0.10.1'
+        classpath "gradle.plugin.se.bjurr.gitchangelog:git-changelog-gradle-plugin:1.50"
     }
 }
 
 plugins {
-  id "com.matthewprenger.cursegradle" version "1.0.8"
+  id "com.matthewprenger.cursegradle" version "1.0.9"
   id 'net.saliman.cobertura' version '2.2.5'
   id 'com.github.kt3k.coveralls' version '2.0.1'
-  id "se.bjurr.gitchangelog.git-changelog-gradle-plugin" version "1.32"
+  //id "se.bjurr.gitchangelog.git-changelog-gradle-plugin" version "1.50"
 }
 
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/index/index.gradle'
@@ -57,8 +62,7 @@ jar {
             "Implementation-Title": archivesBaseName,
             "Implementation-Version": project.version,
             "Git-Hash": gitHash,
-            "VoltzEngine-Version": voltz_engine_version,
-            "FMLAT": "ICBM_at.cfg")
+            "VoltzEngine-Version": voltz_engine_version)
 }
 
 deobfJar {
@@ -68,8 +72,7 @@ deobfJar {
             "Implementation-Title": archivesBaseName,
             "Implementation-Version": project.version,
             "VoltzEngine-Version": voltz_engine_version,
-            "Git-Hash": gitHash,
-            "FMLAT": "ICBM_at.cfg")
+            "Git-Hash": gitHash)
 }
 
 sourcesJar {
@@ -79,8 +82,7 @@ sourcesJar {
             "Implementation-Title": archivesBaseName,
             "Implementation-Version": project.version,
             "VoltzEngine-Version": voltz_engine_version,
-            "Git-Hash": gitHash,
-            "FMLAT": "ICBM_at.cfg")
+            "Git-Hash": gitHash)
 }
 
 
@@ -89,6 +91,25 @@ dependencies
     compile "com.builtbroken.voltzengine:VoltzEngine:1.7.10-$voltz_engine_version+:deobf"
     compile "com.builtbroken.armory:Armory:1.7.10-$armory_version+:deobf"
     
+}
+task makechangelogLocal(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
+    //filePath = "changelog.html"
+    file = new File("changelog.html");
+    untaggedName = "Current release ${project.version}"
+    fromCommit = startGitRev
+    toRef =  "HEAD"
+    templateContent = """
+{{#tags}}
+<h1> Highly untested and may break world</h1>
+  <h3>{{name}}</h3>
+  <ul>
+    {{#commits}}
+    <li> <a href="https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}" target=_blank> {{{message}}}</a>
+</li>
+    {{/commits}}
+  </ul>
+{{/tags}}
+"""
 }
 
 jacocoTestReport {
